@@ -15,8 +15,7 @@ function requireAuth(req, res, next) {
   }
 }
 
-// Comme requireAuth, mais accepte aussi le token en query string (?token=...).
-// Nécessaire pour les liens de téléchargement <a href> qui ne peuvent pas envoyer d'en-tête Authorization.
+
 function requireAuthFlexible(req, res, next) {
   const authHeader = req.headers['authorization'];
   const token = (authHeader && authHeader.startsWith('Bearer ')) ? authHeader.split(' ')[1] : req.query.token;

@@ -5,14 +5,14 @@ function renderHeader() {
   const user = getCurrentUser();
 
   headerEl.innerHTML = `
-    <a class="logo" href="index.html">🔒 MeetSecure</a>
+    <a class="logo" href="index.html">MeetSecure</a>
     <nav id="nav-area"></nav>
   `;
 
   const navArea = document.getElementById('nav-area');
   if (user) {
     navArea.innerHTML = `
-      <span>Connecté(e) : ${escapeHtml(user.name)}</span>
+      <span> ${escapeHtml(user.name)}</span>
       <a href="#" id="logout-link">Déconnexion</a>
     `;
     document.getElementById('logout-link').addEventListener('click', (e) => {

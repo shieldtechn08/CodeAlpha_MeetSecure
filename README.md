@@ -1,4 +1,4 @@
-# 🔒 MeetSecure — Visioconférence &amp; collaboration (WebRTC + Socket.io + Express)
+# MeetSecure — Visioconférence &amp; collaboration (WebRTC + Socket.io + Express)
 
 Application de visioconférence et de collaboration en temps réel : appels vidéo
 multi-utilisateurs, partage d'écran, partage de fichiers chiffrés, tableau blanc

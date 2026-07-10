@@ -1,6 +1,35 @@
 {
-  "users": [],
-  "files": [],
-  "nextUserId": 1,
-  "nextFileId": 1
+  "users": [
+    {
+      "id": 1,
+      "name": "Pépin SAH",
+      "email": "semassapepin@gmail.com",
+      "passwordHash": "$2a$10$7rqou1AF3LB4H/pg2LiAUewwvg5PmlBdJtWtOv8.hDU732AvmRtka",
+      "createdAt": "2026-07-10T07:37:26.614Z"
+    },
+    {
+      "id": 2,
+      "name": "Dembouzz",
+      "email": "dembouzz@gmail.com",
+      "passwordHash": "$2a$10$FRzmePn0hJqSKpO4n/6r8u8DfiUIeb1rMaA6MmF6zQS/FUaUy3tg6",
+      "createdAt": "2026-07-10T07:42:14.759Z"
+    }
+  ],
+  "files": [
+    {
+      "id": 1,
+      "roomId": "by6-4eu-eax",
+      "originalName": "Full Stack Development Tasks & Instructions â CodeAlpha M1 (1).pdf",
+      "mimeType": "application/pdf",
+      "size": 143672,
+      "storedFilename": "04908d83-f522-40df-9df7-8e9e14ce344e.enc",
+      "iv": "da4ce6dfa446db9716745455",
+      "authTag": "94aa9d60ae85282b7145e81e175160d4",
+      "uploadedBy": "Dembouzz",
+      "uploadedById": 2,
+      "createdAt": "2026-07-10T07:56:17.612Z"
+    }
+  ],
+  "nextUserId": 3,
+  "nextFileId": 2
 }

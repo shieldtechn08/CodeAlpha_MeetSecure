@@ -232,21 +232,37 @@ function setupControlBar() {
 
 function toggleMic() {
   micOn = !micOn;
+
   localStream.getAudioTracks().forEach(t => t.enabled = micOn);
+
   const btn = document.getElementById('toggle-mic');
-  btn.textContent = micOn ? '🎤' : '🔇';
-  btn.classList.toggle('off', !micOn);
-  document.getElementById('local-mic-icon').innerHTML = micOn ? '' : '<span class="mic-off-icon">🔇</span>';
-  socket?.emit('media-state', { roomId, micOn, camOn });
+  const icon = btn.querySelector("i");
+
+  icon.classList.toggle("fa-microphone", micOn);
+  icon.classList.toggle("fa-microphone-slash", !micOn);
+
+  btn.classList.toggle("off", !micOn);
+
+  document.getElementById("local-mic-icon").innerHTML =
+      micOn ? "" : '<span class="mic-off-icon">🔇</span>';
+
+  socket?.emit("media-state", { roomId, micOn, camOn });
 }
 
 function toggleCam() {
   camOn = !camOn;
+
   localStream.getVideoTracks().forEach(t => t.enabled = camOn);
+
   const btn = document.getElementById('toggle-cam');
-  btn.textContent = camOn ? '📹' : '📷';
-  btn.classList.toggle('off', !camOn);
-  socket?.emit('media-state', { roomId, micOn, camOn });
+  const icon = btn.querySelector("i");
+
+  icon.classList.toggle("fa-video", camOn);
+  icon.classList.toggle("fa-video-slash", !camOn);
+
+  btn.classList.toggle("off", !camOn);
+
+  socket?.emit("media-state", { roomId, micOn, camOn });
 }
 
 async function toggleScreenShare() {
