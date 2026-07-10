@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MeetSecure — Visioconférence &amp; collaboration</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header id="site-header"></header>
+
+<main>
+  <h1>Bienvenue sur MeetSecure</h1>
+  <p style="color:var(--muted);">Appels vidéo, partage d'écran, fichiers et tableau blanc — en toute sécurité.</p>
+
+  <div class="lobby-grid">
+    <div class="card">
+      <h2>Créer une salle</h2>
+      <p style="color:var(--muted); font-size:0.9rem;">Un code de salle unique sera généré.</p>
+      <form id="create-room-form">
+        <button type="submit" class="btn">➕ Nouvelle salle</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Rejoindre une salle</h2>
+      <form id="join-room-form">
+        <input type="text" id="join-room-code" placeholder="Code de la salle (ex: abc-def-123)" required>
+        <button type="submit" class="btn secondary">Rejoindre</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="encryption-note">
+    🔐 <span>Les flux audio/vidéo et le partage de fichiers transitent chiffrés (WebRTC en DTLS-SRTP,
+    connexions serveur en HTTPS/WSS). Voir le README pour le détail technique.</span>
+  </div>
+</main>
+
+<footer>© 2026 MeetSecure — Projet de démonstration WebRTC</footer>
+
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/lobby.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salle — MeetSecure</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="room-body">
+
+<div class="room-topbar">
+  <div class="room-id">Salle : <strong id="room-id-label"></strong></div>
+  <button class="btn secondary small" id="toggle-panel-btn">☰ Panneau</button>
+</div>
+
+<div class="room-main">
+  <div class="video-area">
+    <div class="video-grid" id="video-grid"></div>
+  </div>
+
+  <div class="side-panel" id="side-panel">
+    <div class="panel-tabs">
+      <button class="panel-tab active" data-panel="participants">👤 Participants</button>
+      <button class="panel-tab" data-panel="files">📁 Fichiers</button>
+      <button class="panel-tab" data-panel="whiteboard">✏️ Tableau</button>
+    </div>
+
+    <div class="panel-content active" id="panel-participants">
+      <div id="participants-list">
+        <p class="empty-state">Chargement des participants...</p>
+      </div>
+    </div>
+
+    <div class="panel-content" id="panel-files">
+      <div class="file-drop" id="file-drop-zone">
+        📤 Cliquez ou déposez un fichier ici (20 Mo max)
+        <input type="file" id="file-input" style="display:none;">
+      </div>
+      <div id="files-list">
+        <p class="empty-state">Aucun fichier partagé pour l'instant.</p>
+      </div>
+    </div>
+
+    <div class="panel-content whiteboard-wrapper" id="panel-whiteboard">
+      <div class="whiteboard-toolbar">
+        <input type="color" id="wb-color" value="#1a1d29">
+        <input type="range" id="wb-width" min="1" max="20" value="3">
+        <button class="btn secondary small" id="wb-clear">🗑️ Effacer</button>
+      </div>
+      <canvas id="whiteboard-canvas"></canvas>
+    </div>
+  </div>
+</div>
+
+<div class="control-bar">
+  <button class="ctrl-btn" id="toggle-mic" title="Micro">🎤</button>
+  <button class="ctrl-btn" id="toggle-cam" title="Caméra">📹</button>
+  <button class="ctrl-btn" id="toggle-screen" title="Partager l'écran">🖥️</button>
+  <button class="ctrl-btn leave" id="leave-btn" title="Quitter">📞 Quitter</button>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/api.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/room.js"></script>
+</body>
+</html>
