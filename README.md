@@ -1,4 +1,4 @@
-# MeetSecure — Visioconférence &amp; collaboration (WebRTC + Socket.io + Express)
+# MeetSecure Visioconférence &amp; collaboration (WebRTC + Socket.io + Express)
 
 Application de visioconférence et de collaboration en temps réel : appels vidéo
 multi-utilisateurs, partage d'écran, partage de fichiers chiffrés, tableau blanc
@@ -24,17 +24,6 @@ npm start
 ```
 
 Site accessible sur : http://localhost:3000
-
-⚠️ **Important pour la production** : générez une vraie clé de chiffrement des
-fichiers avant de déployer :
-```bash
-node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
-```
-et placez le résultat dans `FILE_ENCRYPTION_KEY` du fichier `.env`. Sans cela,
-une clé de dépannage est dérivée automatiquement de `JWT_SECRET` (à éviter en production).
-Déployez aussi le tout derrière HTTPS/WSS (par ex. via un reverse proxy Nginx +
-certificat TLS) : WebRTC exige un contexte sécurisé pour accéder à la caméra/micro
-dès que l'app n'est pas servie en `localhost`.
 
 ## Structure du projet
 
@@ -62,21 +51,21 @@ meet-app/
 
 ## Fonctionnalités
 
-- 📹 **Appels vidéo multi-utilisateurs** : topologie mesh WebRTC (une connexion
+-  **Appels vidéo multi-utilisateurs** : topologie mesh WebRTC (une connexion
   P2P directe entre chaque paire de participants), adaptée aux petits groupes
-- 🖥️ **Partage d'écran** : bascule à la volée la piste vidéo envoyée à tous les
+-  **Partage d'écran** : bascule à la volée la piste vidéo envoyée à tous les
   pairs (`RTCRtpSender.replaceTrack`), sans interrompre l'appel
-- 📁 **Partage de fichiers** : upload HTTP, chiffrement AES-256-GCM avant
+-  **Partage de fichiers** : upload HTTP, chiffrement AES-256-GCM avant
   écriture sur disque, notification instantanée aux participants de la salle,
   déchiffrement à la demande au téléchargement
-- ✏️ **Tableau blanc collaboratif** : dessin synchronisé en temps réel,
+-  **Tableau blanc collaboratif** : dessin synchronisé en temps réel,
   coordonnées normalisées (cohérentes quelle que soit la taille d'écran), état
   rejoué automatiquement pour les participants qui rejoignent en cours de séance
-- 🔐 **Chiffrement** : transit (WebRTC natif) + repos (fichiers, AES-256-GCM)
-- 👤 **Authentification** : JWT, mots de passe hashés, toutes les routes
+-  **Chiffrement** : transit (WebRTC natif) + repos (fichiers, AES-256-GCM)
+-  **Authentification** : JWT, mots de passe hashés, toutes les routes
   sensibles protégées
 
-## Comment fonctionne la signalisation WebRTC (résumé)
+<!-- ## Comment fonctionne la signalisation WebRTC (résumé)
 
 1. Un client rejoint une salle via l'événement Socket.io `join-room`.
 2. Le serveur lui renvoie la liste des participants déjà présents (`room-users`).
@@ -86,7 +75,7 @@ meet-app/
 4. Chaque destinataire répond avec une réponse SDP, puis les candidats ICE
    s'échangent au fur et à mesure qu'ils sont découverts.
 5. Une fois la connexion établie, l'audio/vidéo circule **directement entre
-   navigateurs** (P2P), le serveur n'y a plus accès.
+   navigateurs** (P2P), le serveur n'y a plus accès. -->
 
 ## API REST
 
